@@ -2,45 +2,45 @@ NAME
     Spreadsheet::Wright - simple spreadsheet worker
 
 SYNOPSIS
-        # EXCEL spreadsheet
-
-        use Spreadsheet::Wright;
-
-        my $h=Spreadsheet::Wright->new(
-            file    => 'spreadsheet.xls',
-            format  => 'xls',
-            sheet   => 'Products',
-            styles  => {
-                money   => '($#,##0_);($#,##0)',
-            },
+      # EXCEL spreadsheet
+  
+      use Spreadsheet::Wright;
+  
+      my $s = Spreadsheet::Wright->new(
+        file    => 'spreadsheet.xls',
+        format  => 'xls',
+        sheet   => 'Products',
+        styles  => {
+          money   => '($#,##0_);($#,##0)',
+          },
         );
+  
+      $s->addrow('foo',{
+          content         => 'bar',
+          type            => 'number',
+          style           => 'money',
+          font_weight     => 'bold',
+          font_color      => 42,
+          font_face       => 'Times New Roman',
+          font_size       => 20,
+          align           => 'center',
+          valign          => 'vcenter',
+          font_decoration => 'strikeout',
+          font_style      => 'italic',
+          });
+      $s->addrow('foo2','bar2');
+      $s->freeze(1, 0);
 
-        $h->addrow('foo',{
-            content         => 'bar',
-            type            => 'number',
-            style           => 'money',
-            font_weight     => 'bold',
-            font_color      => 42,
-            font_face       => 'Times New Roman',
-            font_size       => 20,
-            align           => 'center',
-            valign          => 'vcenter',
-            font_decoration => 'strikeout',
-            font_style      => 'italic',
-        });
-        $h->addrow('foo2','bar2');
-        $h->freeze(1,0);
-
-        # CSV file
-
-        use Spreadsheet::Wright;
-
-        my $h=Spreadsheet::Wright->new(
-            file        => 'file.csv',
-            encoding    => 'iso8859',
+      # CSV file
+  
+      use Spreadsheet::Wright;
+  
+      my $s = Spreadsheet::Wright->new(
+        file        => 'file.csv',
+        encoding    => 'iso8859',
         );
-        die $h->error() if $h->error;
-        $h->addrow('foo','bar');
+      die $s->error if $s->error;
+      $s->addrow('foo', 'bar');
 
 DESCRIPTION
     "Spreadsheet::Wright" is a fork of Spreadsheet::Write and may be used as
@@ -58,11 +58,11 @@ DESCRIPTION
 
   Constructor
     "Spreadsheet::Wright->new(%args)"
-            $spreadsheet = Spreadsheet::Wright->new(
-                file            => 'table.xls',
-                styles          => {
-                    mynumber        => '#,##0.00',
-                }
+          $spreadsheet = Spreadsheet::Wright->new(
+            file       => 'table.xls',
+            styles     => {
+              mynumber   => '#,##0.00',
+              },
             );
 
         Creates a new spreadsheet object. It takes a list of options. The
@@ -86,7 +86,7 @@ DESCRIPTION
         the filename extension, defaulting to 'csv'.
 
   Methods
-    "addrow($cell1,$cell2,...)"
+    "addrow($cell_1, $cell_2, ...)"
         Adds a row into the spreadsheet. Takes arbitrary number of
         arguments. Arguments represent cell values and may be strings or
         hash references. If an argument is a hash reference, it takes the
@@ -113,19 +113,19 @@ DESCRIPTION
 
         Example:
 
-            my $sp=Spreadsheet::Wright->new(
-                file        => 'employees.xls',
-                styles      => {
-                    important => { font_weight => 'bold' },
-                },
+          my $sp = Spreadsheet::Wright->new(
+            file      => 'employees.xls',
+            styles    => {
+              important => { font_weight => 'bold' },
+              },
             );
-            $sp->addrow(
-                { content => 'First Name', font_weight => 'bold' },
-                { content => 'Last Name',  font_weight => 'bold' },
-                { content => 'Age',        style => 'important' },
+          $sp->addrow(
+            { content => 'First Name', font_weight => 'bold' },
+            { content => 'Last Name',  font_weight => 'bold' },
+            { content => 'Age',        style => 'important' },
             );
-            $sp->addrow("John","Doe",34);
-            $sp->addrow("Susan","Smith",28);
+          $sp->addrow("John", "Doe", 34);
+          $sp->addrow("Susan", "Smith", 28);
 
         Note that in this example all header cells will have identical
         formatting even though some use direct formats and one uses style.
@@ -141,15 +141,14 @@ DESCRIPTION
         Useful for creating header rows. For instance, the above example can
         be rewritten as:
 
-            $sp->addrow(
-                { style => 'important',
-                  content => [ 'First Name','Last Name','Age' ],
-                }
-            );
+          $sp->addrow({
+            style   => 'important',
+            content => ['First Name', 'Last Name', 'Age'],
+            });
 
         Not all styling options are supported in all formats.
 
-    "addrows([$cell1A,$cell1B,...],[$cell2A,$cell2B,...],...)"
+    "addrows(\@row_1, \@row_2, ...)"
         Shortcut for adding multiple rows.
 
         Each argument is an arrayref representing a row.
@@ -169,12 +168,15 @@ DESCRIPTION
         Spreadsheet::WriteExcel->freeze_panes(). Only implemented for Excel
         spreadsheets so far.
 
-    "close()"
+    "close"
         Saves the spreadsheet to disk (some of the modules save
         incrementally anyway) and closes the file. Calling this explicitly
         is usually un-necessary, as the Perl garbage collector will do the
         job eventually anyway. Once a spreadsheet is closed, calls to
         addrow() will fail.
+
+    "error"
+        Returns the latest recoverable error.
 
 BUGS
     Please report any bugs to <http://rt.cpan.org/>.
@@ -183,7 +185,7 @@ SEE ALSO
     Spreadsheet::Write.
 
 AUTHORS
-    Toby Inkster <tobyink@cpan.org>
+    Toby Inkster <tobyink@cpan.org>.
 
     Excel and CSV output based almost entirely on work by Nick Eremeev
     <nick.eremeev@gmail.com> <http://ejelta.com/>.
@@ -191,8 +193,13 @@ AUTHORS
 COPYRIGHT AND LICENCE
     Copyright 2007 Nick Eremeev.
 
-    Copyright 2010 Toby Inkster.
+    Copyright 2010-2011 Toby Inkster.
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
+
+DISCLAIMER OF WARRANTIES
+    THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
