@@ -14,10 +14,10 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 f5fef8c638bc19a4be441d2e7aec5fd0752545a9 Changes
-SHA1 a2747c39a63cea8abe01c47912553b76b0d1d16d LICENSE
-SHA1 c86745b335a93d05a3812c7f56cfbe7db00cf5db MANIFEST
-SHA1 5d2b81d9987a2e25ede8f5cd27dfa6cda0012f49 META.yml
+SHA1 e8c771f195e2fa918682f8c78558b1ebeb799395 Changes
+SHA1 899cbb00bbdbf99d13d2b33bf853aec6352f103a LICENSE
+SHA1 335d1aad6cedf3dbd7b0ab23885d53eb3ed39860 MANIFEST
+SHA1 867cf2e146855dcad1ae9f8a81cf55b43d41d79f META.yml
 SHA1 5391cc35db658809505db2be59d47aa2f073c376 Makefile.PL
 SHA1 aa2b03744949b649d25f05c854bb9d817be9c800 README
 SHA1 74ec8795d3964cbcdc39d04426938f47bb4b1d52 examples/example1.pl
@@ -36,27 +36,28 @@ SHA1 b86d0385e10881db680d28bde94f275e49e34a27 inc/Module/Install/TrustMetaYml.pm
 SHA1 1326052d1df1065debee74f9d8583a734b9b3d00 inc/Module/Install/Win32.pm
 SHA1 bb607f3715c40fc3bc1c46496587cdb215bc4fa2 inc/Module/Install/WriteAll.pm
 SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 4db02ca3854a0d95bf38139e9b714cc85b618189 inc/Module/Package/Dist/RDF.pm
+SHA1 6b807287940754cc31a3db59f2b22e363d5525be inc/Module/Package/Dist/RDF.pm
 SHA1 775bd24f2fdbb6dce51a8b5b0cdb01fccfce83c4 inc/Scalar/Util.pm
 SHA1 b1b664983568bf822c327599eb88e223483ae96a inc/Scalar/Util/PP.pm
 SHA1 eef6bff62046bff2ce08ba132d0b58fba30f40b4 inc/YAML/Tiny.pm
-SHA1 b49ce489b95993dcf2ee972b7bb0695a0e9f6ebb lib/Spreadsheet/Wright.pm
-SHA1 d6b46ba30f90a57588313a51f80a64f579e8549c lib/Spreadsheet/Wright/CSV.pm
-SHA1 f81dd1345898e1b9803b5595d5761fad395ca524 lib/Spreadsheet/Wright/Excel.pm
-SHA1 bcbb4a9cdeac3b32d55e1e2cbd8edbf22e140922 lib/Spreadsheet/Wright/HTML.pm
-SHA1 0f950a8f0ad4a584b14e9969180ce7ae0757ada2 lib/Spreadsheet/Wright/JSON.pm
-SHA1 557dc04902fc7cc431ba8cf3fdf4fdde06835cac lib/Spreadsheet/Wright/OpenDocument.pm
-SHA1 8a188ac32fae8397eb302bc8b81b81cfedb12e33 lib/Spreadsheet/Wright/OpenDocumentXML.pm
-SHA1 4f169ca1b6931691059cffdd1b85caf4ba5ccaae lib/Spreadsheet/Wright/XHTML.pm
-SHA1 3ac25572435a79a6452178cf43eea7be640c3736 meta/changes.ttl
+SHA1 fc23b3c0a12fcf517e034c6203b4d6ac0f0ac2d5 lib/Spreadsheet/Wright.pm
+SHA1 e4502969afc3b9835e9f327604e2474aa204e3b0 lib/Spreadsheet/Wright/CSV.pm
+SHA1 5abaf64983c379342595eeb2daa3d25066a5db12 lib/Spreadsheet/Wright/Excel.pm
+SHA1 46fc21987f27b2d4852a3547a2106c36f3cf75ae lib/Spreadsheet/Wright/HTML.pm
+SHA1 f9dbafb3337ef72ef64196130faa0d0fd6c9c844 lib/Spreadsheet/Wright/JSON.pm
+SHA1 945903495dc8b67f686128516c93c410b32525c2 lib/Spreadsheet/Wright/OpenDocument.pm
+SHA1 f9e766fb64b2a723942adc28176f60b1d0e90f52 lib/Spreadsheet/Wright/OpenDocumentXML.pm
+SHA1 1fd47b377b7c296cad2501a159b45ac989906f94 lib/Spreadsheet/Wright/XHTML.pm
+SHA1 ea4ca43a056c685f51e2b21f41b602a72a585cf1 meta/changes.ttl
 SHA1 dd08d033e1476f20d2d4f331a02c8d88073439c8 meta/doap.ttl
-SHA1 53dfb01c2707a171b46e381eb7eb7190e711b6eb meta/makefile.ttl
+SHA1 4660b0b5802fb1ecfecdc2ebce563aeb1036a7b9 meta/makefile.ttl
+SHA1 07fdd850fd2fb83865dcb0be8b009f4e7ffe9b2e meta/rt-bugs.ttl
 SHA1 387b5acf4cadb1eae0aac03458685a16449232c5 t/01basic.t
 SHA1 ab8928b0bdad3159d9d0ec63646d91d6ccf2a161 t/02csv.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAk60b1AACgkQzr+BKGoqfTnLfACgl3RrOTX/V+mQsBD4vdAsM4le
-crMAn2IgISSQNasv6Psdu/ufLMmcqFk9
-=pRY3
+iEYEARECAAYFAk8wYOYACgkQzr+BKGoqfTlXeACgko2Cdx28WLZ13XWcGin++sM/
+obAAn3fqqL33prX++k/vS7YJC4wS1+GB
+=/YJa
 -----END PGP SIGNATURE-----

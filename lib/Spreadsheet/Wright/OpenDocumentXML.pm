@@ -4,14 +4,14 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::OpenDocumentXML::VERSION   = '0.103';
+	$Spreadsheet::Wright::OpenDocumentXML::VERSION   = '0.104';
 	$Spreadsheet::Wright::OpenDocumentXML::AUTHORITY = 'cpan:TOBYINK';
 }
 
 use Carp;
 use XML::LibXML;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 use constant {
 	OFFICE_NS => "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
 	STYLE_NS  => "urn:oasis:names:tc:opendocument:xmlns:style:1.0",

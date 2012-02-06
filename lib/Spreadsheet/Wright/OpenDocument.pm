@@ -4,7 +4,7 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::OpenDocument::VERSION   = '0.103';
+	$Spreadsheet::Wright::OpenDocument::VERSION   = '0.104';
 	$Spreadsheet::Wright::OpenDocument::AUTHORITY = 'cpan:TOBYINK';
 }
 
@@ -12,7 +12,7 @@ use Archive::Zip qw':CONSTANTS';
 use Carp;
 use DateTime;
 
-use base qw(Spreadsheet::Wright::OpenDocumentXML);
+use parent qw(Spreadsheet::Wright::OpenDocumentXML);
 
 our $MANIFEST_XML = <<MANIFEST;
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,7 +81,7 @@ sub _make_meta
 	
 	my $date = DateTime->now;
 	
-	return sprintf(<<'META', $title, $date, $date, __PACKAGE__, $VERSION);
+	return sprintf(<<'META', $title, $date, $date, __PACKAGE__, $self->VERSION);
 <?xml version="1.0" ?>
 <office:document-meta office:version="1.0"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"

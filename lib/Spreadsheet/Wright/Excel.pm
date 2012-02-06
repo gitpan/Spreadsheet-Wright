@@ -4,14 +4,14 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::Excel::VERSION   = '0.103';
+	$Spreadsheet::Wright::Excel::VERSION   = '0.104';
 	$Spreadsheet::Wright::Excel::AUTHORITY = 'cpan:TOBYINK';
 }
 
 use Carp;
 use Spreadsheet::WriteExcel;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 
 sub new
 {

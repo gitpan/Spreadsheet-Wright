@@ -4,14 +4,14 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::JSON::VERSION   = '0.103';
+	$Spreadsheet::Wright::JSON::VERSION   = '0.104';
 	$Spreadsheet::Wright::JSON::AUTHORITY = 'cpan:TOBYINK';
 }
 
 use Carp;
 use JSON;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 
 sub new
 {

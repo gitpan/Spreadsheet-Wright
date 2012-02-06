@@ -4,14 +4,14 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::XHTML::VERSION   = '0.103';
+	$Spreadsheet::Wright::XHTML::VERSION   = '0.104';
 	$Spreadsheet::Wright::XHTML::AUTHORITY = 'cpan:TOBYINK';
 }
 
 use Carp;
 use XML::LibXML;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 use constant XHTML_NS => 'http://www.w3.org/1999/xhtml';
 
 sub new
