@@ -1,10 +1,12 @@
 package Spreadsheet::Wright::JSON;
 
 use 5.010;
-use common::sense;
+use strict;
+use warnings;
+no warnings qw( uninitialized numeric );
 
 BEGIN {
-	$Spreadsheet::Wright::JSON::VERSION   = '0.104';
+	$Spreadsheet::Wright::JSON::VERSION   = '0.105';
 	$Spreadsheet::Wright::JSON::AUTHORITY = 'cpan:TOBYINK';
 }
 

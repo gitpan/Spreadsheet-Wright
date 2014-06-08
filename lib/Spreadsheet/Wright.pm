@@ -1,10 +1,12 @@
 package Spreadsheet::Wright;
 
 use 5.010;
-use common::sense;
+use strict;
+use warnings;
+no warnings qw( uninitialized numeric );
 
 BEGIN {
-	$Spreadsheet::Wright::VERSION   = '0.104';
+	$Spreadsheet::Wright::VERSION   = '0.105';
 	$Spreadsheet::Wright::AUTHORITY = 'cpan:TOBYINK';
 }
 
@@ -20,7 +22,7 @@ sub new
 	
 	if (lc $format eq 'auto')
 	{
-		$format = ($filename=~/\.(.+)$/) ? lc($1) : 'auto';
+		$format = ($filename =~ /\.([^\.]+)$/) ? lc($1) : 'auto';
 	}
 	
 	my $implementation = {

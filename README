@@ -43,21 +43,21 @@ SYNOPSIS
       $s->addrow('foo', 'bar');
 
 DESCRIPTION
-    "Spreadsheet::Wright" is a fork of Spreadsheet::Write and may be used as
-    a drop-in replacement.
+    `Spreadsheet::Wright` is a fork of Spreadsheet::Write and may be used as a
+    drop-in replacement.
 
-    "Spreadsheet::Wright" writes files in CSV, Microsoft Excel, HTML and
-    OpenDocument formats. It is especially suitable for building various
-    dumps and reports where rows are built in sequence, one after another.
+    `Spreadsheet::Wright` writes files in CSV, Microsoft Excel, HTML and
+    OpenDocument formats. It is especially suitable for building various dumps
+    and reports where rows are built in sequence, one after another.
 
     It is not especially suitable for modifying existing files.
 
-    The name is a not just pun on "write" - the word "wright" means worker
-    or crafter, and "Spreadsheet::Wright" does a lot of the work of
-    spreadsheet output for you!
+    The name is a not just pun on "write" - the word "wright" means worker or
+    crafter, and `Spreadsheet::Wright` does a lot of the work of spreadsheet
+    output for you!
 
   Constructor
-    "Spreadsheet::Wright->new(%args)"
+    `Spreadsheet::Wright->new(%args)`
           $spreadsheet = Spreadsheet::Wright->new(
             file       => 'table.xls',
             styles     => {
@@ -75,22 +75,20 @@ DESCRIPTION
         *   format - format of spreadsheet - 'csv', 'xls', 'html', 'xhtml',
             'xml', 'ods', 'json' or 'auto' (default).
 
-        *   sheet - first sheet name (optional, not supported by some
-            formats)
+        *   sheet - first sheet name (optional, not supported by some formats)
 
         *   styles - defines cell formatting shortcuts (optional)
 
         *   failsafe - boolean - if true, falls back to CSV in emergencies
 
-        If file format is 'auto' (or omitted), the format is guessed from
-        the filename extension, defaulting to 'csv'.
+        If file format is 'auto' (or omitted), the format is guessed from the
+        filename extension, defaulting to 'csv'.
 
   Methods
-    "addrow($cell_1, $cell_2, ...)"
-        Adds a row into the spreadsheet. Takes arbitrary number of
-        arguments. Arguments represent cell values and may be strings or
-        hash references. If an argument is a hash reference, it takes the
-        following structure:
+    `addrow($cell_1, $cell_2, ...)`
+        Adds a row into the spreadsheet. Takes arbitrary number of arguments.
+        Arguments represent cell values and may be strings or hash references.
+        If an argument is a hash reference, it takes the following structure:
 
             content         value to put into cell
             style           formatting style, as defined in new()
@@ -131,15 +129,15 @@ DESCRIPTION
         formatting even though some use direct formats and one uses style.
 
         If you want to store text that looks like a number you might want to
-        use { type => 'string', format => '@' } arguments. By default the
-        type detection is automatic, as done by for instance
+        use { type => 'string', format => '@' } arguments. By default the type
+        detection is automatic, as done by for instance
         Spreadsheet::WriteExcel write() method.
 
         It is also possible to supply an array reference in the 'content'
-        parameter of the extended format. It means to use the same
-        formatting for as many cells as there are elements in this array.
-        Useful for creating header rows. For instance, the above example can
-        be rewritten as:
+        parameter of the extended format. It means to use the same formatting
+        for as many cells as there are elements in this array. Useful for
+        creating header rows. For instance, the above example can be rewritten
+        as:
 
           $sp->addrow({
             style   => 'important',
@@ -148,7 +146,7 @@ DESCRIPTION
 
         Not all styling options are supported in all formats.
 
-    "addrows(\@row_1, \@row_2, ...)"
+    `addrows(\@row_1, \@row_2, ...)`
         Shortcut for adding multiple rows.
 
         Each argument is an arrayref representing a row.
@@ -156,26 +154,25 @@ DESCRIPTION
         Any argument that is not a reference (i.e. a scalar) is taken to be
         the title of a new worksheet.
 
-    "addsheet($name)"
+    `addsheet($name)`
         Adds a new sheet into the document and makes it active. Subsequent
         addrow() calls will add rows to that new sheet.
 
         For CSV format this call is NOT ignored, but produces a fatal error
         currently.
 
-    "freeze($row, $col, $top_row, $left_col)"
+    `freeze($row, $col, $top_row, $left_col)`
         Sets a freeze-pane at the given position, equivalent to
         Spreadsheet::WriteExcel->freeze_panes(). Only implemented for Excel
         spreadsheets so far.
 
-    "close"
-        Saves the spreadsheet to disk (some of the modules save
-        incrementally anyway) and closes the file. Calling this explicitly
-        is usually un-necessary, as the Perl garbage collector will do the
-        job eventually anyway. Once a spreadsheet is closed, calls to
-        addrow() will fail.
+    `close`
+        Saves the spreadsheet to disk (some of the modules save incrementally
+        anyway) and closes the file. Calling this explicitly is usually
+        un-necessary, as the Perl garbage collector will do the job eventually
+        anyway. Once a spreadsheet is closed, calls to addrow() will fail.
 
-    "error"
+    `error`
         Returns the latest recoverable error.
 
 BUGS

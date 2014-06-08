@@ -1,10 +1,12 @@
 package Spreadsheet::Wright::XHTML;
 
 use 5.010;
-use common::sense;
+use strict;
+use warnings;
+no warnings qw( uninitialized numeric );
 
 BEGIN {
-	$Spreadsheet::Wright::XHTML::VERSION   = '0.104';
+	$Spreadsheet::Wright::XHTML::VERSION   = '0.105';
 	$Spreadsheet::Wright::XHTML::AUTHORITY = 'cpan:TOBYINK';
 }
 
